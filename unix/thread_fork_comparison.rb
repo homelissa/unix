@@ -44,3 +44,13 @@ def time_forks(num_forks)
 # Threading finished in 1.395229 seconds
 # Forking finished in 0.386197 seconds
 # Using forks took 1/4 the amount of time to complete when compared to threads. 
+# threading:
+# global data is easily corrupted through parallelism
+# need to selectively lock data to prevent corruption
+# cheaper than forking
+# threads are killed when the program exits
+# forking:
+# more difficult to corrupt data through parallelism
+# need to selectively share data to enable cooperation
+# somewhat expensive, especially if Copy-on-Write is not utilized
+# child processes are not killed when the main process exits normally
